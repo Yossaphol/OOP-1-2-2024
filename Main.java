@@ -1,29 +1,16 @@
 public class Main {
  public static void main(String[] args) {
- Customer c = new Customer();
- c.name = "Taravichet";
-
- MyDate dob = new MyDate();
- dob.day = 8;
- dob.month = 11;
- dob.year = 2023;
-
- Account acct = new Account();
- acct.name = c.name;
- acct.balance = 500;
-
- c.DOB = dob;
- c.acct = acct;
-
- System.out.println("My name is " + c.name + ".");
-
- c.acct.showInfo();
- c.DOB.showDate();
-
- c.acct.deposit(500);
- c.acct.showInfo();
- c.acct.withdraw(3000);
- c.acct.showInfo();
-
+ FootballPlayer p1 = new FootballPlayer();
+ p1.setName("Harry");
+ p1.setTeam("Gryffindor");
+ p1.setPlayerNumber(1);
+ p1.setPosition("keeper");
+ FootballPlayer p2 = new FootballPlayer();
+ p2.setName("Jame");
+ p2.setTeam("Gryffindor");
+ p2.setPlayerNumber(1);
+ p2.setPosition("fullback");
+ System.out.println("We are same position : " + p1.isSamePosition(p2));
+ System.out.println("We are same team : "+ p1.isSameTeam(p2));
  }
 }
