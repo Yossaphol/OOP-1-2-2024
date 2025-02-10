@@ -1,19 +1,23 @@
-public class Vehicle {
-    private int fuel;
-    private String topSpeed;
-    protected int getFuel() {
+public abstract class Vehicle implements Dieselable{
+    protected double fuel;
+    public Vehicle() {
+        this.fuel = 0.0;
+    }
+    public Vehicle(double fuel) {
+        this.fuel = fuel;
+    }
+    public double getFuel() {
         return fuel;
     }
-    protected String getTopSpeed() {
-        return topSpeed;
+    public void setFuel(double fuel) {
+        this.fuel = fuel;
     }
-    protected void setFuel(int i) {
-        fuel = i;
+    public void addFuel(double fuel) {
+        if (fuel > 0) {
+            this.fuel += fuel;
+        } else {
+            System.out.println("Fuel is emtry.");
+        }
     }
-    protected void setTopSpeed(String n) {
-        topSpeed = n;
-    }
-    public void showInfo() {
-        System.out.println("Fuel is "+this.getFuel()+" litre and Top Speed is "+this.getTopSpeed()+" m/s.");
-    }
+    public abstract void honk();
 }
