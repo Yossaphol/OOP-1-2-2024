@@ -1,7 +1,6 @@
-import java.awt.*;
-import javax.swing.*;
 public class Main {
- public static void main(String[] args) {
- new MDIFromGUI();
- }
+    public static void main(String[] args) {
+//        new CalculatorSample();
+        new TellerGUI();
+    }
 }
