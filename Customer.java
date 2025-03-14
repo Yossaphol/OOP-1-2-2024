@@ -1,38 +1,61 @@
-import java.util.*;
 public class Customer {
     private String firstName;
     private String lastName;
-    private ArrayList<Account> acct;
-    private int numofAccount;
+    private CheckingAccount acct;
+
+    // Constructors
+    public Customer() {
+        this.firstName = "";
+        this.lastName = "";
+        this.acct = null;
+    }
 
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.acct = new ArrayList<>();
-        numofAccount = 0;
+        this.acct = null;
     }
 
-    public Customer() {
-        this("","");
+    public Customer(String firstName, String lastName, CheckingAccount acct) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.acct = acct;
     }
-    
-    public Account getAccount(int index) {
-        return acct.get(index);
+
+    // Methods
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
-    
-    public void addAccount(Account acc) {
-        acct.add(acc);
-        numofAccount += 1;
+
+    public String getFirstName() {
+        return firstName;
     }
-    
-    public int getNumOfAccount() {
-        return numofAccount;
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setAcct(CheckingAccount acct) {
+        this.acct = acct;
+    }
+
+    public CheckingAccount getAcct() {
+        return acct;
     }
 
     @Override
     public String toString() {
-        return "Customer{" + "firstName=" + firstName + ", lastName=" + lastName + ", numofAccount=" + numofAccount + '}';
+        if (acct == null){
+            return firstName + " " + lastName + " doesn’t have account.";
+        } 
+        return "The " + firstName + " account has " + acct.balance + " baht and " + acct.getCredit() + " credits.";
     }
-    
-    
+
+    public boolean equals(Customer c) {
+        return this.firstName.equals(c.firstName) && this.lastName.equals(c.lastName);
+    }
 }

@@ -24,7 +24,7 @@ public class CheckingAccount extends Account{
     }
 
     @Override
-    public void withdraw(double a) {
+    public void withdraw(double a) throws WithdrawException {
         if (a > 0 && (balance - a >= 0)) {
             balance -= a;
             System.out.println(a + " baht is withdrawn from " + name + " and your credit balance is " + credit +".");
@@ -34,13 +34,13 @@ public class CheckingAccount extends Account{
             balance = 0;
             System.out.println(a + " baht is withdrawn from " + name + " and your credit balance is " + credit +".");
         } else if (a > 0 && (balance - a) < 0) {
-            System.out.println("Not enough money!");
+            throw new WithdrawException("Account " + name + " has not enough money.");
         } else {
             System.out.println("Input number must be a positive integer.");
         }
     }
     
-    public void withdraw(String a) {
+    public void withdraw(String a) throws WithdrawException{
         this.withdraw(Double.parseDouble(a));
     }
 
