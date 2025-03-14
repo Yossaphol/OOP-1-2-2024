@@ -1,61 +1,37 @@
 public class Customer {
     private String firstName;
     private String lastName;
-    private CheckingAccount acct;
-
-    // Constructors
-    public Customer() {
-        this.firstName = "";
-        this.lastName = "";
-        this.acct = null;
-    }
+    private Account acct[];
+    private int numofAccount;
 
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.acct = null;
+        acct = new Account[5];
+        numofAccount = 0;
     }
 
-    public Customer(String firstName, String lastName, CheckingAccount acct) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.acct = acct;
+    public Customer() {
+        this("","");
     }
-
-    // Methods
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    
+    public Account getAccount(int index) {
+        return acct[index];
     }
-
-    public String getFirstName() {
-        return firstName;
+    
+    public void addAccount(Account acc) {
+        acct[numofAccount] = acc;
+        numofAccount += 1;
     }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setAcct(CheckingAccount acct) {
-        this.acct = acct;
-    }
-
-    public CheckingAccount getAcct() {
-        return acct;
+    
+    public int getNumOfAccount() {
+        return numofAccount;
     }
 
     @Override
     public String toString() {
-        if (acct == null){
-            return firstName + " " + lastName + " doesn’t have account.";
-        } 
-        return "The " + firstName + " account has " + acct.balance + " baht and " + acct.getCredit() + " credits.";
+        return "Customer{" + "firstName=" + firstName + ", lastName=" + lastName + ", numofAccount=" + numofAccount + '}';
     }
-
-    public boolean equals(Customer c) {
-        return this.firstName.equals(c.firstName) && this.lastName.equals(c.lastName);
-    }
+    
+    
 }
