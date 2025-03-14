@@ -17,12 +17,12 @@ public class Account {
     }
 
     public void withdraw(double a) {
-        if (a > 0 && (this.balance - a) > 0 ) {
+        if (a > 0 && (this.balance - a) >= 0) {
             this.balance -= a;
             System.out.println(a+" baht is withdrawn from "+name+ ".");
-        } else if ((this.balance - a) < 0) {
+        } else if ((this.balance - a) <= 0) {
             System.out.println("Not enough money!.");
-        } else {
+        } else if (a < 0){
             System.out.println("Input number must be a positive integer.");
         }
     }

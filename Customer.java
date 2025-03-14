@@ -1,13 +1,14 @@
+import java.util.*;
 public class Customer {
     private String firstName;
     private String lastName;
-    private Account acct[];
+    private ArrayList<Account> acct;
     private int numofAccount;
 
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        acct = new Account[5];
+        this.acct = new ArrayList<>();
         numofAccount = 0;
     }
 
@@ -16,11 +17,11 @@ public class Customer {
     }
     
     public Account getAccount(int index) {
-        return acct[index];
+        return acct.get(index);
     }
     
     public void addAccount(Account acc) {
-        acct[numofAccount] = acc;
+        acct.add(acc);
         numofAccount += 1;
     }
     
